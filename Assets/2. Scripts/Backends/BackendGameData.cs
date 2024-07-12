@@ -24,10 +24,7 @@ public class BackendGameData
     {
         get
         {
-            if (_instance == null)
-            {
-                _instance = new BackendGameData();
-            }
+            _instance ??= new BackendGameData();
 
             return _instance;
         }

@@ -10,10 +10,7 @@ public class BackendRank : MonoBehaviour
     {
         get
         {
-            if (_instance == null)
-            {
-                _instance ??= new BackendRank();
-            }
+            _instance ??= new BackendRank();
 
             return _instance;
         }
