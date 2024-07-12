@@ -1,4 +1,4 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using System.Xml;
 using UnityEngine;
@@ -7,7 +7,7 @@ public class Spawner : MonoBehaviour
 {
     public List<SpawnData> _spawnDatas = new List<SpawnData>();
 
-    string _xmlFileName = "MobData";
+    //string _xmlFileName = "MobData";
 
     private void Start()
     {
@@ -42,7 +42,7 @@ public class Spawner : MonoBehaviour
         XmlDocument xmlDoc = new XmlDocument();
         xmlDoc.LoadXml(txtAsset.text);
 
-        // ÀüÃ¼ ¾ÆÀÌÅÛ °¡Á®¿À±â ¿¹Á¦.
+        // ì „ì²´ ì•„ì´í…œ ê°€ì ¸ì˜¤ê¸° ì˜ˆì œ.
         XmlNodeList all_nodes = xmlDoc.SelectNodes("root/Sheet1");
         foreach (XmlNode node in all_nodes)
         {
@@ -59,7 +59,7 @@ public class Spawner : MonoBehaviour
     }*/
 
     [System.Serializable]
-    public class SpawnData //¸ó½ºÅÍ ´É·ÂÄ¡ µ¥ÀÌÅÍ
+    public class SpawnData //ëª¬ìŠ¤í„° ëŠ¥ë ¥ì¹˜ ë°ì´í„°
     {
         public int spriteType;
         public float health;
