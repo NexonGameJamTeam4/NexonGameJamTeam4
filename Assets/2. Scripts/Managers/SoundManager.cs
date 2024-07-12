@@ -51,6 +51,7 @@ public class SoundManager : MonoBehaviour
 
     public void Play(string name, Sound type = Sound.SFX)
     {
+        Debug.Log("Play");
         AudioClip audioClip = GetAudioClip(name, type);
 
         if (type == Sound.BGM)
