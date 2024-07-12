@@ -1,37 +1,83 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    public float jumpPower;
+    public float maxSpeed = 5f;
+    public float jumpForce = 10f;
+    public float backgroundSpeed;
 
-    Rigidbody2D rb;
-    Vector2 jumpVector = new Vector2();
-    bool isGround;
+    private bool isGrounded;
+    private bool isJumping;
+    private Rigidbody2D rb;
+    private Animator anim;
+    private SpriteRenderer sprite;
 
-    private void Awake()
+    void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
-        jumpVector = jumpPower * Vector2.up;
-        isGround = true;
+        anim = GetComponent<Animator>();
+        sprite = GetComponent<SpriteRenderer>();
     }
 
-    private void Update()
+    void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Space) && isGround)
+        if (Input.GetButtonUp("Horizontal"))
         {
-            Debug.Log("Space");
-            rb.AddForce(jumpVector, ForceMode2D.Impulse);
-            isGround = false;
+            rb.velocity = new Vector2(rb.velocity.normalized.x * 0.5f, rb.velocity.y);
+        }
+        if (Input.GetButtonDown("Jump") && isGrounded)
+        {
+            rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
+            anim.SetTrigger("Jump");
+            isJumping = true;
         }
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    void FixedUpdate()
+    {
+        float h = Input.GetAxisRaw("Horizontal");
+
+        rb.AddForce(Vector2.right * h, ForceMode2D.Impulse);
+
+        if (rb.velocity.x > maxSpeed)
+        {
+            rb.velocity = new Vector2(maxSpeed, rb.velocity.y);
+            backgroundSpeed = maxSpeed / 2;
+            if(!isJumping)
+                anim.Play("CharacterRun");
+            sprite.flipX = false;
+
+        }
+        else if (rb.velocity.x < -maxSpeed)
+        {
+            rb.velocity = new Vector2(-maxSpeed, rb.velocity.y);
+            backgroundSpeed = -maxSpeed / 2;
+            if(!isJumping)
+                anim.Play("CharacterRun");
+            sprite.flipX = true;
+        }
+        else
+        {
+            backgroundSpeed = 0;
+        }
+    }
+
+    void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Ground"))
         {
-            isGround = true;
+            isGrounded = true;
+            isJumping = false;
+            anim.Play("CharacterIdle");
+        }
+    }
+
+    void OnCollisionExit2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Ground"))
+        {
+            isGrounded = false;
+            isJumping = true;
         }
     }
 }
