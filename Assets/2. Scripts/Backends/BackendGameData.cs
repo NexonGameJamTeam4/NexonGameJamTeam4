@@ -1,8 +1,5 @@
-﻿using System.Collections.Generic;
-using System.Text;
+﻿using System.Text;
 using UnityEngine;
-
-// 뒤끝 SDK namespace 추가
 using BackEnd;
 
 public class UserData

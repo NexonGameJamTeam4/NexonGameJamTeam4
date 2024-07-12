@@ -29,8 +29,7 @@ public class BackendManager : MonoBehaviour
         await Task.Run(() => {
             BackendLogin.Instance.CustomLogin("user1", "1234"); // [추가] 뒤끝 로그인
 
-            // 랭킹 기능 로직 추가
-            BackendRank.Instance.RankInsert(80f);
+            BackendRank.Instance.RankGet();
 
             Debug.Log("테스트를 종료합니다.");
         });
