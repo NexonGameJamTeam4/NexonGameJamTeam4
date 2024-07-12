@@ -12,11 +12,6 @@ public class LobbyManager : MonoBehaviour
         Debug.Log("StartBtnClicked");
     }
 
-    public void RankBtnClicked()
-    {
-        Debug.Log("RankBtnClicked");
-    }
-
     public void QuitBtnClicked()
     {
 #if UNITY_EDITOR
