@@ -1,4 +1,5 @@
 ﻿using BackEnd;
+using System.Threading.Tasks;
 using UnityEngine;
 
 public class BackendManager : MonoBehaviour
@@ -16,5 +17,18 @@ public class BackendManager : MonoBehaviour
         {
             Debug.LogError("초기화 실패 : " + bro); // 실패일 경우 statusCode 400대 에러 발생
         }
+
+        Test();
+    }
+
+    // =======================================================
+    // [추가] 동기 함수를 비동기에서 호출하게 해주는 함수(유니티 UI 접근 불가)
+    // =======================================================
+    async void Test()
+    {
+        await Task.Run(() => {
+            BackendLogin.Instance.CustomSignUp("user1", "1234"); // [추가] 뒤끝 회원가입 함수
+            Debug.Log("테스트를 종료합니다.");
+        });
     }
 }
