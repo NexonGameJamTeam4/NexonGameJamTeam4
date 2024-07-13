@@ -58,7 +58,7 @@ public class PlayerController : CreatureState
             rb.velocity = new Vector2(rb.velocity.x, jumpingPower);
             state = State.Jump;
             jumpBufferCounter = 0f;
-
+            SoundManager.instance.Play("Jump");
             StartCoroutine(JumpCooldown());
         }
 
