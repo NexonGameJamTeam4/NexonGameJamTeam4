@@ -1,5 +1,4 @@
-﻿using BackEnd;
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -31,7 +30,6 @@ public class GroundController : MonoBehaviour
     private BoxCollider2D leafCollider;
 
     Coroutine coLeaf;
-    Coroutine coDandelion;
 
     private void Awake()
     {
@@ -49,10 +47,6 @@ public class GroundController : MonoBehaviour
         {
             LeafMovement();
         }
-        else if(type == BlockType.Dandelion)
-        {
-            DandelionMovement();
-        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -64,6 +58,7 @@ public class GroundController : MonoBehaviour
                 case BlockType.Rock:
                     break;
                 case BlockType.Leaf:
+                    LeafMovement();
                     break;
                 case BlockType.Papercup:
                     PapercupMovement();
@@ -72,17 +67,14 @@ public class GroundController : MonoBehaviour
                     MushroomMovement();
                     break;
                 case BlockType.Bark:
-                    MushroomMovement();
                     break;
                 case BlockType.Sap:
-                    SapMovement(collision.gameObject);
                     break;
                 case BlockType.Moss:
                     break;
                 case BlockType.Dandelion:
                     break;
                 case BlockType.ShatteredRock:
-                    MushroomMovement();
                     break;
             }
         }
@@ -112,20 +104,6 @@ public class GroundController : MonoBehaviour
         }
     }
 
-    void SapMovement(GameObject player)
-    {
-        if (player.transform.localScale.x > 0)
-            player.GetComponent<Rigidbody2D>().AddForce(Vector2.right);
-        else
-            player.GetComponent<Rigidbody2D>().AddForce(Vector2.left);
-    }
-
-    void DandelionMovement()
-    {
-        if(coDandelion == null)
-            StartCoroutine(CoDandelion());
-    }
-
     IEnumerator CoLeaf()
     {
         while(true)
@@ -143,27 +121,5 @@ public class GroundController : MonoBehaviour
     {
         yield return new WaitForSeconds(0.5f);
         Destroy(gameObject);
-    }
-
-    IEnumerator CoDandelion()
-    {
-        Vector3 upPosition = transform.position + Vector3.up * 5f;
-        Vector3 downPosition = transform.position + Vector3.down * 5f;
-        while(true)
-        {
-            while(Vector3.Distance(transform.position, upPosition) > 0.1f)
-            {
-                rb.MovePosition(upPosition);
-            }
-
-            yield return new WaitForSeconds(2f);
-
-            while (Vector3.Distance(transform.position, downPosition) > 0.1f)
-            {
-                rb.MovePosition(downPosition);
-            }
-
-            yield return new WaitForSeconds(2f);
-        }
     }
 }

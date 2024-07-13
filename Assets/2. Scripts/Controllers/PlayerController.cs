@@ -139,8 +139,6 @@ public class PlayerController : CreatureState
     private void Awake()
     {
         anim = GetComponent<Animator>();
-        rb = GetComponent<Rigidbody2D>();
-        groundCheck = GetComponent<Transform>();
     }
 
     private void Update()
@@ -231,10 +229,5 @@ public class PlayerController : CreatureState
         isJumping = true;
         yield return new WaitForSeconds(0.2f);
         isJumping = false;
-    }
-
-    public void Dead()
-    {
-        //TODO : Defeat, dead motion
     }
 }
