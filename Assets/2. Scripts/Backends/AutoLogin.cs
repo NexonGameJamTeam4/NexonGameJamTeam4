@@ -7,6 +7,7 @@ public class AutoLogin : MonoBehaviour
     [SerializeField] private TmpGameManager gameManager;
     [SerializeField] private GameObject rankingPanel;
     [SerializeField] private ShowRank showRank;
+    [SerializeField] private ShowMyRank showMyRank;
 
     [SerializeField] private TMP_InputField nicknameInputField; // 닉네임을 입력받을 TMP_InputField
     [SerializeField] private TextMeshProUGUI resultTxt;        // 결과 메시지를 표시할 TextMeshProUGUI
@@ -87,7 +88,7 @@ public class AutoLogin : MonoBehaviour
                 showRank.FetchRanking();
 
                 // 내 랭크와 점수 바로보기
-                showRank.FetchMyCurrentRank();
+                showMyRank.FetchMyRank();
             }
             else
             {
