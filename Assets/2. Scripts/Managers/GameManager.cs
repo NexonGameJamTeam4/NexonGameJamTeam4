@@ -52,7 +52,7 @@ public class GameManager : MonoBehaviour
         //TODO : 패배 UI 띄우기
 
         //임시
-        SceneManager.LoadScene("Battle");
+        SceneManager.LoadScene("Stage1");
     }
 
     public void Progress()
