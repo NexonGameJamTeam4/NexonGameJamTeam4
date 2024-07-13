@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class LobbyManager : MonoBehaviour
 {
@@ -10,11 +11,7 @@ public class LobbyManager : MonoBehaviour
     public void StartBtnClicked()
     {
         Debug.Log("StartBtnClicked");
-    }
-
-    public void RankBtnClicked()
-    {
-        Debug.Log("RankBtnClicked");
+        SceneManager.LoadScene("TmpScene");
     }
 
     public void QuitBtnClicked()
