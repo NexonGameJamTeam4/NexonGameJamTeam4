@@ -71,6 +71,8 @@ public class PlayerController : CreatureState
 
     private void FixedUpdate()
     {
+        if (state == State.Die) return;
+
         rb.velocity = new Vector2(horizontal * speed, rb.velocity.y);
         if (state != State.Jump && rb.velocity.x != 0)
             state = State.Run;
@@ -110,6 +112,10 @@ public class PlayerController : CreatureState
             case State.Jump:
                 anim.Play("CharacterJump");
                 break;
+            case State.Die:
+                anim.Play("CharacterDead");
+                rb.velocity = (Vector2.up * 5f);
+                break;
         }
     }
 
@@ -123,5 +129,7 @@ public class PlayerController : CreatureState
     public void Dead()
     {
         //TODO : Defeat, dead motion
+        state = State.Die;
+        AnimationUpdate();
     }
 }

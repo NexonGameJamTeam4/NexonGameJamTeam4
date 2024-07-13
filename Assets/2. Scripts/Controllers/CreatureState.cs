@@ -8,7 +8,8 @@ public class CreatureState : MonoBehaviour
     {
         Idle,
         Run,
-        Jump
+        Jump,
+        Die
     }
 
     public virtual void AnimationUpdate() { }

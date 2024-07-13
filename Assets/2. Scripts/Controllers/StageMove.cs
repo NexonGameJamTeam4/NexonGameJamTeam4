@@ -14,6 +14,10 @@ public class StageMove : MonoBehaviour
                 SceneManager.LoadScene("Stage2");
             else if (SceneManager.GetActiveScene().name == "Stage2")
                 SceneManager.LoadScene("Stage3");
+            else if(SceneManager.GetActiveScene().name == "Stage3")
+            {
+                GameManager.instance.Victory();
+            }
         }
     }
 }
