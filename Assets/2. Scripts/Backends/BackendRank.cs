@@ -21,7 +21,6 @@ public class BackendRank : MonoBehaviour
         string rankUUID = "a9a8c7e0-4065-11ef-8ef5-fbf3130cca85";
 
         string tableName = "USER_DATA";
-        string rowInDate = string.Empty;
 
         // 랭킹을 삽입하기 위해서는 게임 데이터에서 사용하는 데이터의 inDate값이 필요합니다.  
         // 따라서 데이터를 불러온 후, 해당 데이터의 inDate값을 추출하는 작업을 해야합니다.  
@@ -36,6 +35,7 @@ public class BackendRank : MonoBehaviour
 
         Debug.Log("데이터 조회에 성공했습니다 : " + bro);
 
+        string rowInDate;
         if (bro.FlattenRows().Count > 0)
         {
             rowInDate = bro.FlattenRows()[0]["inDate"].ToString();

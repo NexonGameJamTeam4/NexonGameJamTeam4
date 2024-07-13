@@ -59,7 +59,8 @@ public class ShowRank : MonoBehaviour
 
             rankTxt[i].text = jsonData["rank"].ToString();
             nicknameTxt[i].text = jsonData["nickname"].ToString();
-            clearTimeTxt[i].text = jsonData["score"].ToString();
+            float clearTime = float.Parse(jsonData["score"].ToString());
+            clearTimeTxt[i].text = clearTime.ToString("F3");
 
             i++;
         }

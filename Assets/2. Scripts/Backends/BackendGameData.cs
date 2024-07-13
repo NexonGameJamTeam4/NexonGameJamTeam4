@@ -34,13 +34,13 @@ public class BackendGameData
 
     private string gameDataRowInDate = string.Empty;
 
-    public void GameDataInsert()
+    public void GameDataInsert(float score)
     {
         if (userData == null)
         {
             userData = new UserData();
             Debug.Log("데이터를 초기화합니다.");
-            userData.clearTime = 100f;
+            userData.clearTime = score;
 
             Debug.Log("뒤끝 업데이트 목록에 해당 데이터들을 추가합니다.");
             Param param = new Param();
@@ -97,10 +97,10 @@ public class BackendGameData
         }
     }
 
-    public void NewRecord()
+    public void NewRecord(float clearTime)
     {
         Debug.Log("기록을 업데이트합니다.");
-        userData.clearTime = 90f;
+        userData.clearTime = clearTime;
     }
 
     public void GameDataUpdate()
