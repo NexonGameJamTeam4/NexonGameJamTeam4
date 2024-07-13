@@ -27,13 +27,14 @@ public class GroundController : MonoBehaviour
     private SpriteRenderer sprite;
     private int paperCount;
     private Color leafColor;
-    private BoxCollider2D leafCollider;
+    private CapsuleCollider2D leafCollider;
     
 
     private void Awake()
     {
         anim = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
+        leafCollider = GetComponent<CapsuleCollider2D>();
         if(type == BlockType.Papercup)
             sprite = GetComponentInChildren<SpriteRenderer>();
         paperCount = 0;
@@ -49,7 +50,7 @@ public class GroundController : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "Player")
+        if (collision.gameObject.tag == "Player")   
         {
             switch (type)
             {
@@ -62,6 +63,7 @@ public class GroundController : MonoBehaviour
                     PapercupMovement();
                     break;
                 case BlockType.Mushroom:
+                    MushroomMovement();
                     break;
                 case BlockType.Bark:
                     break;
@@ -70,7 +72,6 @@ public class GroundController : MonoBehaviour
                 case BlockType.Moss:
                     break;
                 case BlockType.Dandelion:
-                    MushroomMovement();
                     break;
                 case BlockType.ShatteredRock:
                     break;
@@ -105,16 +106,12 @@ public class GroundController : MonoBehaviour
     {
         while(true)
         {
-            leafColor = GetComponentInChildren<SpriteRenderer>().color;
-            leafCollider = GetComponentInChildren<BoxCollider2D>();
-            Color color = new Color(leafColor.r, leafColor.g, leafColor.b, 0f);
-            leafColor = color;
+            GetComponentInChildren<SpriteRenderer>().color = new Color(1, 1, 1, 0f);
             leafCollider.enabled = false;
-            Debug.Log(leafColor);
-            yield return new WaitForSeconds(1f);
-            leafColor.a = 1;
+            yield return new WaitForSeconds(3f);
+            GetComponentInChildren<SpriteRenderer>().color = new Color(1, 1, 1, 1f);
             leafCollider.enabled = true;
-            yield return new WaitForSeconds(1f);
+            yield return new WaitForSeconds(3f);
         }
     }
 

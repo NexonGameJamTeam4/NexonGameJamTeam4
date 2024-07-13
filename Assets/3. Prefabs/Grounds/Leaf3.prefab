@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 7166234720008466766}
   - component: {fileID: 1370523063031430599}
   - component: {fileID: 3891401714594627136}
-  - component: {fileID: 1895013029228404003}
+  - component: {fileID: 8528963458790316567}
   m_Layer: 0
   m_Name: Leaf3
   m_TagString: Ground
@@ -75,9 +75,9 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 6
---- !u!61 &1895013029228404003
-BoxCollider2D:
+  m_Constraints: 7
+--- !u!70 &8528963458790316567
+CapsuleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -108,19 +108,9 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.040220976, y: 3.757245}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 4.7, y: 1.38}
-    newSize: {x: 4.7, y: 1.38}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 2.1526628, y: 0.5566232}
-  m_EdgeRadius: 0
+  m_Offset: {x: 0, y: 0}
+  m_Size: {x: 0.5, y: 1}
+  m_Direction: 0
 --- !u!1 &8299479966075363746
 GameObject:
   m_ObjectHideFlags: 0

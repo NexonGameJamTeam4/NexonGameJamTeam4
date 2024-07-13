@@ -10,7 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 5968246296994833831}
   - component: {fileID: 1480892183162744773}
-  - component: {fileID: 8154526287657606130}
+  - component: {fileID: -427697344013069970}
+  - component: {fileID: -2719628045128885576}
   m_Layer: 0
   m_Name: PaperCup
   m_TagString: Ground
@@ -48,8 +49,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   type: 2
   secondCup: {fileID: 21300000, guid: 407d64aa54c5e6c459f7df428880c5f9, type: 3}
---- !u!61 &8154526287657606130
-BoxCollider2D:
+--- !u!70 &-427697344013069970
+CapsuleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -80,19 +81,36 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.008043587, y: -0.1367409}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 1.7882711, y: 0.7265182}
-  m_EdgeRadius: 0
+  m_Offset: {x: -0.023471357, y: 0.015647834}
+  m_Size: {x: 1.7354248, y: 0.9687104}
+  m_Direction: 1
+--- !u!50 &-2719628045128885576
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1372456258840996022}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 7
 --- !u!1 &1629861998159831542
 GameObject:
   m_ObjectHideFlags: 0

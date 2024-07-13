@@ -19,9 +19,7 @@ public class CameraController : MonoBehaviour
     {
         transform.position = player.transform.position + offset;
         
-        foreach(GameObject background in backgrounds)
-        {
-            background.transform.position = new Vector3(background.transform.position.x, player.transform.position.y, 1);
-        }
+        for(int i=0; i<2; i++)
+            backgrounds[i].transform.position = new Vector3(backgrounds[i].transform.position.x, player.transform.position.y, 1);
     }
 }

@@ -31,13 +31,13 @@ public class ParallexBackground_01 : MonoBehaviour
         switch(backgroundType)
         {
             case BackgroundType.back:
-                moveSpeed = player.backgroundSpeed;
+                moveSpeed = player.backgroundSpeed / 4;
                 break;
             case BackgroundType.middle:
-                moveSpeed = player.backgroundSpeed * 1.2f;
+                moveSpeed = player.backgroundSpeed / 2;
                 break;
             case BackgroundType.front:
-                moveSpeed = player.backgroundSpeed * 1.5f;
+                moveSpeed = player.backgroundSpeed ;
                 break;
         }
         moveVec = moveDir * moveSpeed * Time.deltaTime;
