@@ -1,7 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEditor;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class ParallexBackground_01 : MonoBehaviour
 {
@@ -23,33 +20,33 @@ public class ParallexBackground_01 : MonoBehaviour
     [SerializeField]
     private BackgroundType backgroundType;
 
-    Vector3 moveVec = new Vector3();
-    float moveSpeed;
+    private float moveSpeed;
 
     private void FixedUpdate()
     {
-        switch(backgroundType)
+        float playerVelocityX = player.GetComponent<Rigidbody2D>().velocity.x;
+        switch (backgroundType)
         {
             case BackgroundType.back:
-                moveSpeed = player.GetComponent<Rigidbody2D>().velocity.x / 4;
+                moveSpeed = playerVelocityX / 4;
                 break;
             case BackgroundType.middle:
-                moveSpeed = player.GetComponent<Rigidbody2D>().velocity.x / 2;
+                moveSpeed = playerVelocityX / 2;
                 break;
             case BackgroundType.front:
-                moveSpeed = player.GetComponent<Rigidbody2D>().velocity.x;
+                moveSpeed = playerVelocityX;
                 break;
         }
-        moveVec = moveDir * moveSpeed * Time.deltaTime;
+        Vector3 moveVec = moveSpeed * Time.deltaTime * moveDir;
         transform.position += moveVec;
 
         if (transform.position.x - player.gameObject.transform.position.x > 25)
         {
-            transform.position = new Vector3(target.transform.position.x - scrollAmount, target.transform.position.y, target.transform.position.z);
+            transform.position = new Vector3(target.position.x - scrollAmount, target.position.y, target.position.z);
         }
         else if (transform.position.x - player.gameObject.transform.position.x < -25)
         {
-            transform.position = new Vector3(target.transform.position.x + scrollAmount, target.transform.position.y, target.transform.position.z);
+            transform.position = new Vector3(target.position.x + scrollAmount, target.position.y, target.position.z);
         }
     }
 }
