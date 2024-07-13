@@ -7,6 +7,6 @@ public class TmpGameManager : MonoBehaviour
 
     public void LoadMain()
     {
-        SceneManager.LoadScene("LobbyScene");
+        SceneManager.LoadScene("Lobby");
     }
 }

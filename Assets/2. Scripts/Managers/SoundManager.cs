@@ -4,6 +4,7 @@ using UnityEngine;
 public enum Sound
 {
     BGM,
+    BGM2,
     SFX,
     Max
 }
@@ -25,6 +26,7 @@ public class SoundManager : MonoBehaviour
     public float SFXVolume = 0.5f;
 
     public AudioSource BGM => audioSources[(int)Sound.BGM];
+    public AudioSource BGM2 => audioSources[(int)Sound.BGM2];
     public AudioSource SFX => audioSources[(int)Sound.SFX];
 
     private void Awake()
@@ -41,11 +43,18 @@ public class SoundManager : MonoBehaviour
         DontDestroyOnLoad(gameObject);
 
         BGM.loop = true;
+        BGM2.loop = true;
+    }
+
+    private void Start()
+    {
+        Play("MainBGM", Sound.BGM);
+        Play("Rain", Sound.BGM2);
     }
 
     public void ClickBtnSFX()
     {
-        SoundManager.instance.Play("Click");
+        Play("Click");
     }
 
     private void Update()
@@ -59,9 +68,24 @@ public class SoundManager : MonoBehaviour
         Debug.Log("Play");
         AudioClip audioClip = GetAudioClip(name, type);
 
-        if (type == Sound.BGM)
+        if (type == Sound.SFX)
         {
-            AudioSource audioSource = BGM;
+            AudioSource audioSource = SFX;
+
+            audioSource.volume = SFXVolume;
+            audioSource.PlayOneShot(audioClip);
+        }
+        else
+        {
+            AudioSource audioSource;
+            if (type == Sound.BGM)
+            {
+                audioSource = BGM;
+            }
+            else
+            {
+                audioSource = BGM2;
+            }
             if (audioSource.isPlaying)
                 audioSource.Stop();
 
@@ -69,23 +93,16 @@ public class SoundManager : MonoBehaviour
             audioSource.clip = audioClip;
             audioSource.Play();
         }
-        else // SFX
-        {
-            AudioSource audioSource = SFX;
-
-            audioSource.volume = SFXVolume;
-            audioSource.PlayOneShot(audioClip);
-        }
     }
 
     private AudioClip GetAudioClip(string name, Sound type = Sound.SFX)
     {
         List<AudioClips> getList = null;
 
-        if (type == Sound.BGM)
-            getList = bgmClips;
-        else
+        if (type == Sound.SFX)
             getList = sfxClips;
+        else
+            getList = bgmClips;
 
         AudioClip getClip = getList.Find(x => x.name.Equals(name)).clip;
         return getClip;

@@ -3,11 +3,6 @@ using UnityEngine.SceneManagement;
 
 public class LobbyManager : MonoBehaviour
 {
-    private void Start()
-    {
-        SoundManager.instance.Play("MainBGM", Sound.BGM);
-    }
-
     public void StartBtnClicked()
     {
         SceneManager.LoadScene("TmpScene");
