@@ -26,14 +26,25 @@ public class GroundController : MonoBehaviour
     private Rigidbody2D rb;
     private SpriteRenderer sprite;
     private int paperCount;
+    private Color leafColor;
+    private BoxCollider2D leafCollider;
     
 
     private void Awake()
     {
         anim = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
-        sprite = GetComponent<SpriteRenderer>();
+        if(type == BlockType.Papercup)
+            sprite = GetComponentInChildren<SpriteRenderer>();
         paperCount = 0;
+    }
+
+    private void Start()
+    {
+        if(type == BlockType.Leaf)
+        {
+            LeafMovement();
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -59,7 +70,7 @@ public class GroundController : MonoBehaviour
                 case BlockType.Moss:
                     break;
                 case BlockType.Dandelion:
-                    DandelionMovement();
+                    MushroomMovement();
                     break;
                 case BlockType.ShatteredRock:
                     break;
@@ -72,14 +83,14 @@ public class GroundController : MonoBehaviour
         StartCoroutine(CoLeaf());
     }
 
-    void DandelionMovement()
+    void MushroomMovement()
     {
-        StartCoroutine(CoDandelion());
+        StartCoroutine(CoMushroom());
     }
 
     void PapercupMovement()
     {
-        if(paperCount > 1)
+        if(paperCount > 0)
         {
             Destroy(gameObject);
         }
@@ -92,25 +103,24 @@ public class GroundController : MonoBehaviour
 
     IEnumerator CoLeaf()
     {
-        float time = 0;
-        yield return new WaitForSeconds(0.5f);
-        while (true)
+        while(true)
         {
-            time += Time.deltaTime;
-            if (time > 3)
-            {
-                break;
-            }
-            rb.MovePosition(transform.position + Vector3.right * Time.deltaTime * 50);
-            yield return null;
-
+            leafColor = GetComponentInChildren<SpriteRenderer>().color;
+            leafCollider = GetComponentInChildren<BoxCollider2D>();
+            Color color = new Color(leafColor.r, leafColor.g, leafColor.b, 0f);
+            leafColor = color;
+            leafCollider.enabled = false;
+            Debug.Log(leafColor);
+            yield return new WaitForSeconds(1f);
+            leafColor.a = 1;
+            leafCollider.enabled = true;
+            yield return new WaitForSeconds(1f);
         }
-        Destroy(gameObject);
     }
 
-    IEnumerator CoDandelion()
+    IEnumerator CoMushroom()
     {
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(0.5f);
         Destroy(gameObject);
     }
 }
