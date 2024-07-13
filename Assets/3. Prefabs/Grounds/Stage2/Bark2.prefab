@@ -95,7 +95,7 @@ GameObject:
   - component: {fileID: 7429486533177029345}
   - component: {fileID: -6295108440027814694}
   - component: {fileID: 6455450442925283835}
-  - component: {fileID: -7511076065896857723}
+  - component: {fileID: 7642176156645309455}
   m_Layer: 7
   m_Name: Bark2
   m_TagString: Ground
@@ -178,7 +178,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   type: 4
   secondCup: {fileID: 0}
---- !u!251 &-7511076065896857723
+--- !u!251 &7642176156645309455
 PlatformEffector2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

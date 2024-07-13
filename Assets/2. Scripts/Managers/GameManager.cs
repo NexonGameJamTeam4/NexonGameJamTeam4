@@ -21,11 +21,9 @@ public class GameManager : MonoBehaviour
     float endSize;
     float nowProgress;
     bool isPaused;
-    StackedProgress stackedValue;
 
     private void Awake()
     {
-        stackedValue = new StackedProgress();
         instance = this;
         isPaused = false;
     }
@@ -76,13 +74,13 @@ public class GameManager : MonoBehaviour
         else if(SceneManager.GetActiveScene() == SceneManager.GetSceneByName("Stage2"))
         {
             endSize = Vector2.Distance(endBlock.transform.position, startBlock.transform.position);
-            nowProgress = player.transform.position.y / endSize + stackedValue.stackedValue;
+            nowProgress = player.transform.position.y / endSize;
             progressSlider.value = nowProgress;
         }
         else if (SceneManager.GetActiveScene() == SceneManager.GetSceneByName("Stage3"))
         {
             endSize = Vector2.Distance(endBlock.transform.position, startBlock.transform.position);
-            nowProgress = player.transform.position.x / endSize + stackedValue.stackedValue;
+            nowProgress = player.transform.position.x / endSize;
             progressSlider.value = nowProgress;
         }
     }

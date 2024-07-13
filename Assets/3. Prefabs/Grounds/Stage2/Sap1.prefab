@@ -10,9 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 6327823638251404767}
   - component: {fileID: 3415372873411201386}
-  - component: {fileID: 8279878322006944680}
   - component: {fileID: 3850787861495302565}
   - component: {fileID: 9024985208765695990}
+  - component: {fileID: -1434462163740554853}
   m_Layer: 7
   m_Name: Sap1
   m_TagString: Ground
@@ -81,25 +81,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 2.0943317, y: 0.40653545}
   m_EdgeRadius: 0
---- !u!251 &8279878322006944680
-PlatformEffector2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 88930370431065307}
-  m_Enabled: 1
-  m_UseColliderMask: 1
-  m_ColliderMask:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_RotationalOffset: 0
-  m_UseOneWay: 1
-  m_UseOneWayGrouping: 0
-  m_SurfaceArc: 180
-  m_UseSideFriction: 0
-  m_UseSideBounce: 0
-  m_SideArc: 1
 --- !u!114 &3850787861495302565
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -141,6 +122,25 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 5
+--- !u!251 &-1434462163740554853
+PlatformEffector2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 88930370431065307}
+  m_Enabled: 1
+  m_UseColliderMask: 1
+  m_ColliderMask:
+    serializedVersion: 2
+    m_Bits: 256
+  m_RotationalOffset: 0
+  m_UseOneWay: 1
+  m_UseOneWayGrouping: 0
+  m_SurfaceArc: 180
+  m_UseSideFriction: 0
+  m_UseSideBounce: 0
+  m_SideArc: 1
 --- !u!1 &438191813206148512
 GameObject:
   m_ObjectHideFlags: 0

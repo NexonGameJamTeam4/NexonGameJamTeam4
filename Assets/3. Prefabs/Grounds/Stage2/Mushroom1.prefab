@@ -94,8 +94,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4715551078180145416}
   - component: {fileID: 2848485339787976164}
-  - component: {fileID: 2333048887207750097}
   - component: {fileID: 5420829503771656779}
+  - component: {fileID: 483502233448781818}
   m_Layer: 7
   m_Name: Mushroom1
   m_TagString: Ground
@@ -164,7 +164,21 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 2.942871, y: 1}
   m_EdgeRadius: 0
---- !u!251 &2333048887207750097
+--- !u!114 &5420829503771656779
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4972818774730038912}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 71f6508dc61f20544a94e60bfbb554f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  type: 0
+  secondCup: {fileID: 0}
+--- !u!251 &483502233448781818
 PlatformEffector2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -183,17 +197,3 @@ PlatformEffector2D:
   m_UseSideFriction: 0
   m_UseSideBounce: 0
   m_SideArc: 1
---- !u!114 &5420829503771656779
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4972818774730038912}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 71f6508dc61f20544a94e60bfbb554f0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  type: 0
-  secondCup: {fileID: 0}

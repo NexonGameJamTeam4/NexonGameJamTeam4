@@ -94,8 +94,8 @@ GameObject:
   m_Component:
   - component: {fileID: 8014660489300087520}
   - component: {fileID: 6601602681646187745}
-  - component: {fileID: 2016736659051805682}
   - component: {fileID: 7418973658355905627}
+  - component: {fileID: 4220554004675880359}
   m_Layer: 7
   m_Name: Leaf2
   m_TagString: Ground
@@ -164,7 +164,21 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.3114637, y: 0.20871384}
   m_EdgeRadius: 0
---- !u!251 &2016736659051805682
+--- !u!114 &7418973658355905627
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3238434356825943481}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 71f6508dc61f20544a94e60bfbb554f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  type: 1
+  secondCup: {fileID: 0}
+--- !u!251 &4220554004675880359
 PlatformEffector2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -183,17 +197,3 @@ PlatformEffector2D:
   m_UseSideFriction: 0
   m_UseSideBounce: 0
   m_SideArc: 1
---- !u!114 &7418973658355905627
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3238434356825943481}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 71f6508dc61f20544a94e60bfbb554f0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  type: 1
-  secondCup: {fileID: 0}
