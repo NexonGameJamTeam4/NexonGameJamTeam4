@@ -5909,6 +5909,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: SoundManager
       objectReference: {fileID: 0}
+    - target: {fileID: 8140670125264951081, guid: bffbe2a02782ab44f8f65c05c0d82b96, type: 3}
+      propertyPath: bgmClips.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8140670125264951081, guid: bffbe2a02782ab44f8f65c05c0d82b96, type: 3}
+      propertyPath: bgmClips.Array.data[1].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 472fcc7d95aedf945a676896db7b3e57, type: 3}
+    - target: {fileID: 8140670125264951081, guid: bffbe2a02782ab44f8f65c05c0d82b96, type: 3}
+      propertyPath: bgmClips.Array.data[1].name
+      value: Rain
+      objectReference: {fileID: 0}
     - target: {fileID: 9194285241813460113, guid: bffbe2a02782ab44f8f65c05c0d82b96, type: 3}
       propertyPath: m_RootOrder
       value: 4
