@@ -4,6 +4,7 @@ using UnityEngine;
 public enum Sound
 {
     BGM,
+    BGM2,
     SFX,
     Max
 }
@@ -25,6 +26,7 @@ public class SoundManager : MonoBehaviour
     public float SFXVolume = 0.5f;
 
     public AudioSource BGM => audioSources[(int)Sound.BGM];
+    public AudioSource BGM2 => audioSources[(int)Sound.BGM2];
     public AudioSource SFX => audioSources[(int)Sound.SFX];
 
     private void Awake()
@@ -41,16 +43,24 @@ public class SoundManager : MonoBehaviour
         DontDestroyOnLoad(gameObject);
 
         BGM.loop = true;
+        BGM2.loop = true;
+    }
+
+    private void Start()
+    {
+        Play("MainBGM", Sound.BGM);
+        Play("Rain", Sound.BGM2);
     }
 
     public void ClickBtnSFX()
     {
-        SoundManager.instance.Play("Click");
+        Play("Click");
     }
 
     private void Update()
     {
         BGM.volume = BGMVolume;
+        BGM2.volume = BGMVolume * 0.3f;
         SFX.volume = SFXVolume;
     }
 
@@ -59,22 +69,31 @@ public class SoundManager : MonoBehaviour
         Debug.Log("Play");
         AudioClip audioClip = GetAudioClip(name, type);
 
-        if (type == Sound.BGM)
-        {
-            AudioSource audioSource = BGM;
-            if (audioSource.isPlaying)
-                audioSource.Stop();
-
-            audioSource.volume = BGMVolume;
-            audioSource.clip = audioClip;
-            audioSource.Play();
-        }
-        else // SFX
+        if (type == Sound.SFX)
         {
             AudioSource audioSource = SFX;
 
             audioSource.volume = SFXVolume;
             audioSource.PlayOneShot(audioClip);
+        }
+        else
+        {
+            AudioSource audioSource;
+            if (type == Sound.BGM)
+            {
+                audioSource = BGM;
+                audioSource.volume = BGMVolume;
+            }
+            else
+            {
+                audioSource = BGM2;
+                audioSource.volume = BGMVolume * 0.3f;
+            }
+            if (audioSource.isPlaying)
+                audioSource.Stop();
+
+            audioSource.clip = audioClip;
+            audioSource.Play();
         }
     }
 
@@ -82,10 +101,10 @@ public class SoundManager : MonoBehaviour
     {
         List<AudioClips> getList = null;
 
-        if (type == Sound.BGM)
-            getList = bgmClips;
-        else
+        if (type == Sound.SFX)
             getList = sfxClips;
+        else
+            getList = bgmClips;
 
         AudioClip getClip = getList.Find(x => x.name.Equals(name)).clip;
         return getClip;
