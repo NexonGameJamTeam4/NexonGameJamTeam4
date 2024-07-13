@@ -27,7 +27,7 @@ public class BackendManager : MonoBehaviour
     async void Test()
     {
         await Task.Run(() => {
-            // BackendLogin.Instance.CustomLogin("user1", "1234"); // [추가] 뒤끝 로그인
+            BackendLogin.Instance.CustomLogin("user1", "1234"); // [추가] 뒤끝 로그인
 
             Debug.Log("테스트를 종료합니다.");
         });
