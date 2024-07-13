@@ -1,8 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
-// 뒤끝 SDK namespace 추가
+﻿using UnityEngine;
 using BackEnd;
 
 public class BackendLogin
@@ -13,10 +9,7 @@ public class BackendLogin
     {
         get
         {
-            if (_instance == null)
-            {
-                _instance = new BackendLogin();
-            }
+            _instance ??= new BackendLogin();
 
             return _instance;
         }

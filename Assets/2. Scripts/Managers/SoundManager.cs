@@ -35,10 +35,10 @@ public class SoundManager : MonoBehaviour
         }
         else
         {
-            Destroy(this.gameObject);
+            Destroy(gameObject);
         }
 
-        DontDestroyOnLoad(this.gameObject);
+        DontDestroyOnLoad(gameObject);
 
         BGM.loop = true;
     }

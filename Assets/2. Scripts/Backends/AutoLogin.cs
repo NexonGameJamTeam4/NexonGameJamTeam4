@@ -9,9 +9,9 @@ public class AutoLogin : MonoBehaviour
     [SerializeField] private ShowRank showRank;
     [SerializeField] private ShowMyRank showMyRank;
 
-    [SerializeField] private TMP_InputField nicknameInputField; // 닉네임을 입력받을 TMP_InputField
-    [SerializeField] private TextMeshProUGUI resultTxt;        // 결과 메시지를 표시할 TextMeshProUGUI
-    private readonly int maxRetryCount = 5;      // 아이디 생성 재시도 최대 횟수
+    [SerializeField] private TMP_InputField nicknameInputField;
+    [SerializeField] private TextMeshProUGUI resultTxt;
+    private readonly int maxRetryCount = 5;
 
     // 버튼 클릭 시 호출되는 함수
     public void OnRegisterAndLoginButtonClicked()
@@ -79,8 +79,6 @@ public class AutoLogin : MonoBehaviour
                 // 점수 업데이트
                 BackendGameData.Instance.GameDataInsert(gameManager.clearTime);
                 BackendRank.Instance.RankInsert(gameManager.clearTime);
-                // BackendGameData.Instance.NewRecord(gameManager.clearTime);
-                // BackendGameData.Instance.GameDataUpdate();
 
                 // 랭킹 보여주기
                 rankingPanel.SetActive(true);
