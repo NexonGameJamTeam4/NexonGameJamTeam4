@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class PlayerController : MonoBehaviour
+public class PlayerController : CreatureState
 {
     public float maxSpeed = 5f;
     public float jumpForce = 10f;
@@ -12,11 +12,14 @@ public class PlayerController : MonoBehaviour
     private Animator anim;
     private SpriteRenderer sprite;
 
+    private State state;
+
     void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
         sprite = GetComponent<SpriteRenderer>();
+        state = State.Idle;
     }
 
     void Update()
@@ -28,7 +31,7 @@ public class PlayerController : MonoBehaviour
         if (Input.GetButtonDown("Jump") && isGrounded)
         {
             rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
-            anim.SetTrigger("Jump");
+            state = State.Jump;
             isJumping = true;
         }
     }
@@ -39,26 +42,45 @@ public class PlayerController : MonoBehaviour
 
         rb.AddForce(Vector2.right * h, ForceMode2D.Impulse);
 
-        if (rb.velocity.x > maxSpeed)
+        if (rb.velocity.x > maxSpeed || rb.velocity.x > 0)
         {
             rb.velocity = new Vector2(maxSpeed, rb.velocity.y);
             backgroundSpeed = maxSpeed / 2;
-            if(!isJumping)
-                anim.Play("CharacterRun");
-            sprite.flipX = false;
-
+            if (state != State.Jump)
+                state = State.Run;
+            transform.rotation = Quaternion.Euler(0, 0, 0);
         }
-        else if (rb.velocity.x < -maxSpeed)
+        else if (rb.velocity.x < -maxSpeed || rb.velocity.x < 0)
         {
             rb.velocity = new Vector2(-maxSpeed, rb.velocity.y);
             backgroundSpeed = -maxSpeed / 2;
-            if(!isJumping)
-                anim.Play("CharacterRun");
-            sprite.flipX = true;
+            if (state != State.Jump)
+                state = State.Run;
+            transform.rotation = Quaternion.Euler(0, 180, 0);
         }
-        else
+
+        if (h == 0)
         {
+            state = State.Idle;
+            rb.velocity = new Vector2(0, rb.velocity.y);
             backgroundSpeed = 0;
+        }
+        AnimationUpdate();
+    }
+
+    public override void AnimationUpdate()
+    {
+        switch (state)
+        {
+            case State.Idle:
+                anim.Play("CharacterIdle");
+                break;
+            case State.Run:
+                anim.Play("CharacterRun");
+                break;
+            case State.Jump:
+                anim.Play("CharacterJump");
+                break;
         }
     }
 
@@ -68,7 +90,7 @@ public class PlayerController : MonoBehaviour
         {
             isGrounded = true;
             isJumping = false;
-            anim.Play("CharacterIdle");
+            state = State.Idle;
         }
     }
 
