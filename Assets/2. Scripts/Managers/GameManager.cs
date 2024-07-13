@@ -7,6 +7,7 @@ public class GameManager : MonoBehaviour
     public float clearTime;
     public StageManager stageManager;
     private bool isPaused;
+    public bool isCleared;
 
     private void Awake()
     {

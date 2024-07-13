@@ -10,8 +10,9 @@ public class LobbyManager : MonoBehaviour
 
     public void StartBtnClicked()
     {
+        // TODO: 스테이지1 첫블럭에서 발 떼면 0초로 초기화
         GameManager.instance.clearTime = 0f;
-        SceneManager.LoadScene("Stage1");
+        SceneManager.LoadScene("Opening");
     }
 
     public void QuitBtnClicked()

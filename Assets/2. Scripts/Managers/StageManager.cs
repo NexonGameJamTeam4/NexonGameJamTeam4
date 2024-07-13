@@ -24,6 +24,7 @@ public class StageManager : MonoBehaviour
     public void Victory()
     {
         VictoryMenu.SetActive(true);
+        GameManager.instance.isCleared = true;
     }
 
     public void Defeat()
@@ -65,6 +66,14 @@ public class StageManager : MonoBehaviour
     public void GoToMain()
     {
         Time.timeScale = 1;
-        SceneManager.LoadScene("Lobby");
+
+        if (!GameManager.instance.isCleared)
+            SceneManager.LoadScene("Lobby");
+        else
+        {
+            GameManager.instance.isCleared = false;
+            SceneManager.LoadScene("Ending");
+        }
+            
     }
 }
