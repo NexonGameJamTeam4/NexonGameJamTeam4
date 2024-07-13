@@ -954,6 +954,26 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3720463988584961363, guid: 7303f09c6fbaabe428effbe91b7f0421, type: 3}
       propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3889690419672460294, guid: 7303f09c6fbaabe428effbe91b7f0421, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3889690419672460294, guid: 7303f09c6fbaabe428effbe91b7f0421, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1570754636}
+    - target: {fileID: 3889690419672460294, guid: 7303f09c6fbaabe428effbe91b7f0421, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: LoadMain
+      objectReference: {fileID: 0}
+    - target: {fileID: 3889690419672460294, guid: 7303f09c6fbaabe428effbe91b7f0421, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: TmpGameManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 3889690419672460294, guid: 7303f09c6fbaabe428effbe91b7f0421, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_BoolArgument
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5308939173384901220, guid: 7303f09c6fbaabe428effbe91b7f0421, type: 3}
@@ -1102,6 +1122,18 @@ PrefabInstance:
 
 '
       objectReference: {fileID: 0}
+    - target: {fileID: 7313312240665717257, guid: 7303f09c6fbaabe428effbe91b7f0421, type: 3}
+      propertyPath: myRankTxt
+      value: 
+      objectReference: {fileID: 511304971}
+    - target: {fileID: 7313312240665717257, guid: 7303f09c6fbaabe428effbe91b7f0421, type: 3}
+      propertyPath: myNicknameTxt
+      value: 
+      objectReference: {fileID: 511304970}
+    - target: {fileID: 7313312240665717257, guid: 7303f09c6fbaabe428effbe91b7f0421, type: 3}
+      propertyPath: myClearTimeTxt
+      value: 
+      objectReference: {fileID: 511304969}
     - target: {fileID: 7342179988383309147, guid: 7303f09c6fbaabe428effbe91b7f0421, type: 3}
       propertyPath: m_text
       value: '-
@@ -1226,6 +1258,39 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9d2de2b80e6a294419e8caa41bfdd2e4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &511304969 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6949634500476663129, guid: 7303f09c6fbaabe428effbe91b7f0421, type: 3}
+  m_PrefabInstance: {fileID: 511304965}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &511304970 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5422264171585180492, guid: 7303f09c6fbaabe428effbe91b7f0421, type: 3}
+  m_PrefabInstance: {fileID: 511304965}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &511304971 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8824523242546581469, guid: 7303f09c6fbaabe428effbe91b7f0421, type: 3}
+  m_PrefabInstance: {fileID: 511304965}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &589666093

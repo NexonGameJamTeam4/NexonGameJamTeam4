@@ -77,6 +77,9 @@ public class AutoLogin : MonoBehaviour
                 rankingPanel.SetActive(true);
                 BackendRank.Instance.RankGet();
                 showRank.FetchRanking();
+
+                // 내 랭크와 점수 바로보기
+                showRank.FetchMyCurrentRank();
             }
             else
             {
