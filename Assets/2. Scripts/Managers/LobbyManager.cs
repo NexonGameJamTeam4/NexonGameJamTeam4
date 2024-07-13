@@ -10,7 +10,7 @@ public class LobbyManager : MonoBehaviour
 
     public void StartBtnClicked()
     {
-        SceneManager.LoadScene("TmpScene");
+        SceneManager.LoadScene("Stage1");
     }
 
     public void QuitBtnClicked()
