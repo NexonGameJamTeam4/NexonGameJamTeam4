@@ -91,6 +91,7 @@ public class GroundController : MonoBehaviour
                     SapMovement(collision.gameObject);
                     break;
                 case BlockType.Moss:
+                    SetSlippy(collision.gameObject);
                     break;
                 case BlockType.Dandelion:
                     break;
@@ -99,6 +100,22 @@ public class GroundController : MonoBehaviour
                     break;
             }
         }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (type == BlockType.Moss)
+            SetNormal(collision.gameObject);
+        }
+
+    void SetNormal(GameObject player)
+    {
+        player.GetComponent<PlayerController>().speed = 8f;
+    }
+
+    void SetSlippy(GameObject player)
+    {
+        player.GetComponent<PlayerController>().speed = 30f;
     }
 
     void LeafMovement()
