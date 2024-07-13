@@ -5,12 +5,8 @@ using UnityEngine;
 public class CameraController : MonoBehaviour
 {
     public GameObject player;
-    public GameObject background;
-    public GameObject background2;
-    public GameObject background3;
-    public GameObject background4;
-    public GameObject background5;
-    public GameObject background6;
+
+    public List<GameObject> backgrounds;
 
     private Vector3 offset;
 
@@ -22,7 +18,8 @@ public class CameraController : MonoBehaviour
     private void Update()
     {
         transform.position = player.transform.position + offset;
-        background.transform.position = new Vector3(background.transform.position.x, player.transform.position.y, 1);
-        background2.transform.position = new Vector3(background2.transform.position.x, player.transform.position.y, 1);
+        
+        for(int i=0; i<2; i++)
+            backgrounds[i].transform.position = new Vector3(backgrounds[i].transform.position.x, player.transform.position.y, 1);
     }
 }

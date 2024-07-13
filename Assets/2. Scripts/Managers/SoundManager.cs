@@ -43,6 +43,11 @@ public class SoundManager : MonoBehaviour
         BGM.loop = true;
     }
 
+    public void ClickBtnSFX()
+    {
+        SoundManager.instance.Play("Click");
+    }
+
     private void Update()
     {
         BGM.volume = BGMVolume;

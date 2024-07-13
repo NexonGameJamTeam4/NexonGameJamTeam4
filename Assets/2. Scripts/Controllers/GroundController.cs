@@ -26,19 +26,31 @@ public class GroundController : MonoBehaviour
     private Rigidbody2D rb;
     private SpriteRenderer sprite;
     private int paperCount;
+    private Color leafColor;
+    private CapsuleCollider2D leafCollider;
     
 
     private void Awake()
     {
         anim = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
-        sprite = GetComponent<SpriteRenderer>();
+        leafCollider = GetComponent<CapsuleCollider2D>();
+        if(type == BlockType.Papercup)
+            sprite = GetComponentInChildren<SpriteRenderer>();
         paperCount = 0;
+    }
+
+    private void Start()
+    {
+        if(type == BlockType.Leaf)
+        {
+            LeafMovement();
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "Player")
+        if (collision.gameObject.tag == "Player")   
         {
             switch (type)
             {
@@ -51,6 +63,7 @@ public class GroundController : MonoBehaviour
                     PapercupMovement();
                     break;
                 case BlockType.Mushroom:
+                    MushroomMovement();
                     break;
                 case BlockType.Bark:
                     break;
@@ -59,7 +72,6 @@ public class GroundController : MonoBehaviour
                 case BlockType.Moss:
                     break;
                 case BlockType.Dandelion:
-                    DandelionMovement();
                     break;
                 case BlockType.ShatteredRock:
                     break;
@@ -72,14 +84,14 @@ public class GroundController : MonoBehaviour
         StartCoroutine(CoLeaf());
     }
 
-    void DandelionMovement()
+    void MushroomMovement()
     {
-        StartCoroutine(CoDandelion());
+        StartCoroutine(CoMushroom());
     }
 
     void PapercupMovement()
     {
-        if(paperCount > 1)
+        if(paperCount > 0)
         {
             Destroy(gameObject);
         }
@@ -92,25 +104,20 @@ public class GroundController : MonoBehaviour
 
     IEnumerator CoLeaf()
     {
-        float time = 0;
-        yield return new WaitForSeconds(0.5f);
-        while (true)
+        while(true)
         {
-            time += Time.deltaTime;
-            if (time > 3)
-            {
-                break;
-            }
-            rb.MovePosition(transform.position + Vector3.right * Time.deltaTime * 50);
-            yield return null;
-
+            GetComponentInChildren<SpriteRenderer>().color = new Color(1, 1, 1, 0f);
+            leafCollider.enabled = false;
+            yield return new WaitForSeconds(3f);
+            GetComponentInChildren<SpriteRenderer>().color = new Color(1, 1, 1, 1f);
+            leafCollider.enabled = true;
+            yield return new WaitForSeconds(3f);
         }
-        Destroy(gameObject);
     }
 
-    IEnumerator CoDandelion()
+    IEnumerator CoMushroom()
     {
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(0.5f);
         Destroy(gameObject);
     }
 }

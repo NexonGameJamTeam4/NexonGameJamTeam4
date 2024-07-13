@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
 
 public class PlayerController : CreatureState
 {
@@ -10,6 +11,7 @@ public class PlayerController : CreatureState
     private Rigidbody2D rb;
     private Animator anim;
     private SpriteRenderer sprite;
+    private Coroutine jumpBuffer;
 
     private State state;
 
@@ -43,7 +45,7 @@ public class PlayerController : CreatureState
         if (rb.velocity.x > maxSpeed || rb.velocity.x > 0)
         {
             rb.velocity = new Vector2(maxSpeed, rb.velocity.y);
-            backgroundSpeed = maxSpeed / 2;
+            backgroundSpeed = rb.velocity.x / 2;
             if (state != State.Jump)
                 state = State.Run;
             transform.rotation = Quaternion.Euler(0, 0, 0);
@@ -51,10 +53,14 @@ public class PlayerController : CreatureState
         else if (rb.velocity.x < -maxSpeed || rb.velocity.x < 0)
         {
             rb.velocity = new Vector2(-maxSpeed, rb.velocity.y);
-            backgroundSpeed = -maxSpeed / 2;
+            backgroundSpeed = rb.velocity.x / 2;
             if (state != State.Jump)
                 state = State.Run;
             transform.rotation = Quaternion.Euler(0, 180, 0);
+        }
+        else
+        {
+            backgroundSpeed = rb.velocity.x / 2;
         }
 
         if (h == 0)
@@ -96,7 +102,16 @@ public class PlayerController : CreatureState
     {
         if (collision.gameObject.CompareTag("Ground"))
         {
-            isGrounded = false;
+            if(jumpBuffer != null) StopCoroutine(jumpBuffer);
+            jumpBuffer = StartCoroutine(CoJumpBuffer());
         }
+    }
+
+    IEnumerator CoJumpBuffer()
+    {
+        yield return new WaitForSeconds(0.1f);
+
+        jumpBuffer = null;
+        isGrounded = false;
     }
 }
