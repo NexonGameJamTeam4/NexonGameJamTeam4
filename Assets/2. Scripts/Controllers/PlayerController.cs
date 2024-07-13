@@ -7,7 +7,6 @@ public class PlayerController : CreatureState
     public float backgroundSpeed;
 
     private bool isGrounded;
-    private bool isJumping;
     private Rigidbody2D rb;
     private Animator anim;
     private SpriteRenderer sprite;
@@ -32,7 +31,6 @@ public class PlayerController : CreatureState
         {
             rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
             state = State.Jump;
-            isJumping = true;
         }
     }
 
@@ -61,7 +59,8 @@ public class PlayerController : CreatureState
 
         if (h == 0)
         {
-            state = State.Idle;
+            if(state != State.Jump)
+                state = State.Idle;
             rb.velocity = new Vector2(0, rb.velocity.y);
             backgroundSpeed = 0;
         }
@@ -89,7 +88,6 @@ public class PlayerController : CreatureState
         if (collision.gameObject.CompareTag("Ground"))
         {
             isGrounded = true;
-            isJumping = false;
             state = State.Idle;
         }
     }
@@ -99,7 +97,6 @@ public class PlayerController : CreatureState
         if (collision.gameObject.CompareTag("Ground"))
         {
             isGrounded = false;
-            isJumping = true;
         }
     }
 }

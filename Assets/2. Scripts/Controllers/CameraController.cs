@@ -7,7 +7,10 @@ public class CameraController : MonoBehaviour
     public GameObject player;
     public GameObject background;
     public GameObject background2;
-
+    public GameObject background3;
+    public GameObject background4;
+    public GameObject background5;
+    public GameObject background6;
 
     private Vector3 offset;
 

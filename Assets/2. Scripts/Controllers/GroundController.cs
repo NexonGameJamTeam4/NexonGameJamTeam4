@@ -8,23 +8,35 @@ public class GroundController : MonoBehaviour
     {
         Rock,
         Leaf,
-        Dandelion,
         Papercup,
+        Mushroom,
+        Bark,
+        Sap,
+        Moss,
+        Dandelion,
+        ShatteredRock,
     }
 
     [SerializeField]
     private BlockType type;
+    [SerializeField]
+    private Sprite secondCup;
 
     private Animator anim;
     private Rigidbody2D rb;
+    private SpriteRenderer sprite;
+    private int paperCount;
+    
 
     private void Awake()
     {
         anim = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
+        sprite = GetComponent<SpriteRenderer>();
+        paperCount = 0;
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "Player")
         {
@@ -35,11 +47,21 @@ public class GroundController : MonoBehaviour
                 case BlockType.Leaf:
                     LeafMovement();
                     break;
+                case BlockType.Papercup:
+                    PapercupMovement();
+                    break;
+                case BlockType.Mushroom:
+                    break;
+                case BlockType.Bark:
+                    break;
+                case BlockType.Sap:
+                    break;
+                case BlockType.Moss:
+                    break;
                 case BlockType.Dandelion:
                     DandelionMovement();
                     break;
-                case BlockType.Papercup:
-                    PapercupMovement();
+                case BlockType.ShatteredRock:
                     break;
             }
         }
@@ -47,22 +69,31 @@ public class GroundController : MonoBehaviour
 
     void LeafMovement()
     {
-        StartCoroutine(LeafRun());
+        StartCoroutine(CoLeaf());
     }
 
     void DandelionMovement()
     {
-
+        StartCoroutine(CoDandelion());
     }
 
     void PapercupMovement()
     {
-
+        if(paperCount > 1)
+        {
+            Destroy(gameObject);
+        }
+        else
+        {
+            paperCount++;
+            sprite.sprite = secondCup;
+        }
     }
 
-    IEnumerator LeafRun()
+    IEnumerator CoLeaf()
     {
         float time = 0;
+        yield return new WaitForSeconds(0.5f);
         while (true)
         {
             time += Time.deltaTime;
@@ -70,10 +101,16 @@ public class GroundController : MonoBehaviour
             {
                 break;
             }
-            rb.MovePosition(transform.position + Vector3.right * Time.deltaTime * 30);
+            rb.MovePosition(transform.position + Vector3.right * Time.deltaTime * 50);
             yield return null;
 
         }
+        Destroy(gameObject);
+    }
+
+    IEnumerator CoDandelion()
+    {
+        yield return new WaitForSeconds(1f);
         Destroy(gameObject);
     }
 }
