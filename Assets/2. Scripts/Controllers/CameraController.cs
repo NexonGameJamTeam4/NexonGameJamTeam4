@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class CameraController : MonoBehaviour
 {
@@ -18,8 +19,11 @@ public class CameraController : MonoBehaviour
     private void Update()
     {
         transform.position = player.transform.position + offset;
-        
-        for(int i=0; i<2; i++)
-            backgrounds[i].transform.position = new Vector3(backgrounds[i].transform.position.x, player.transform.position.y, 1);
+
+        if (SceneManager.GetActiveScene().name == "Stage1")
+        {
+            for (int i = 0; i < 2; i++)
+                backgrounds[i].transform.position = new Vector3(backgrounds[i].transform.position.x, player.transform.position.y, 1);
+        }
     }
 }
