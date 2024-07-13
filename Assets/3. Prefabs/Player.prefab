@@ -12,10 +12,11 @@ GameObject:
   - component: {fileID: 4947737943883023154}
   - component: {fileID: 8124784898608159402}
   - component: {fileID: 3467856339912190866}
-  - component: {fileID: 1137815983589470294}
+  - component: {fileID: 2662822686252012617}
+  - component: {fileID: 2312434519809867137}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -75,8 +76,8 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_Sprite: {fileID: -6447722072507503168, guid: 10f3cacccb0c4c547be76836eba20664, type: 3}
+  m_SortingOrder: 10
+  m_Sprite: {fileID: 21300000, guid: 267a94f8a47594b44a0127b31acb7822, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -99,8 +100,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 48144959fca17fe45a879ee5875c16c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 0
-  jumpPower: 10
+  maxSpeed: 5
+  jumpForce: 10
+  backgroundSpeed: 0
 --- !u!50 &3467856339912190866
 Rigidbody2D:
   serializedVersion: 4
@@ -116,7 +118,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 3
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -128,8 +130,8 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!61 &1137815983589470294
-BoxCollider2D:
+--- !u!60 &2662822686252012617
+PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -160,16 +162,95 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.033231884, y: 0}
+  m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
+    oldSize: {x: 1.345, y: 1.86}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 0.8415094, y: 1}
-  m_EdgeRadius: 0
+  m_Points:
+    m_Paths:
+    - - {x: 0.30249998, y: -0.57}
+      - {x: 0.4075, y: -0.5}
+      - {x: 0.4025, y: -0.45499998}
+      - {x: 0.3825, y: -0.32999998}
+      - {x: 0.3375, y: -0.024999999}
+      - {x: 0.3075, y: 0.074999996}
+      - {x: 0.3375, y: 0.099999994}
+      - {x: 0.3825, y: 0.12}
+      - {x: 0.4425, y: 0.21}
+      - {x: 0.4475, y: 0.24499999}
+      - {x: 0.4475, y: 0.37}
+      - {x: 0.4025, y: 0.45999998}
+      - {x: 0.36249998, y: 0.49499997}
+      - {x: 0.3775, y: 0.55}
+      - {x: 0.3775, y: 0.59499997}
+      - {x: 0.3525, y: 0.615}
+      - {x: 0.30249998, y: 0.615}
+      - {x: 0.2625, y: 0.53}
+      - {x: 0.0875, y: 0.565}
+      - {x: -0.1325, y: 0.59}
+      - {x: -0.18249999, y: 0.59}
+      - {x: -0.2075, y: 0.57}
+      - {x: -0.21249999, y: 0.555}
+      - {x: -0.1375, y: 0.42}
+      - {x: -0.0525, y: 0.26999998}
+      - {x: -0.0025, y: 0.195}
+      - {x: 0.037499998, y: 0.145}
+      - {x: 0.0975, y: 0.12}
+      - {x: 0.0775, y: 0.08}
+      - {x: -0.0325, y: -0.11}
+      - {x: -0.0875, y: -0.16499999}
+      - {x: -0.1425, y: -0.195}
+      - {x: -0.2325, y: -0.22}
+      - {x: -0.2725, y: -0.24}
+      - {x: -0.36249998, y: -0.31}
+      - {x: -0.4025, y: -0.37}
+      - {x: -0.4475, y: -0.45499998}
+      - {x: -0.4475, y: -0.53}
+      - {x: -0.4325, y: -0.56}
+      - {x: -0.3875, y: -0.57}
+      - {x: -0.30249998, y: -0.53}
+      - {x: -0.2225, y: -0.48}
+      - {x: -0.1475, y: -0.415}
+      - {x: -0.1125, y: -0.42999998}
+      - {x: -0.067499995, y: -0.45}
+      - {x: 0.0925, y: -0.48499998}
+      - {x: 0.1475, y: -0.48499998}
+      - {x: 0.1125, y: -0.59}
+      - {x: 0.122499995, y: -0.78999996}
+      - {x: 0.1325, y: -0.825}
+      - {x: 0.1525, y: -0.835}
+      - {x: 0.3525, y: -0.835}
+      - {x: 0.3525, y: -0.84}
+      - {x: 0.36749998, y: -0.84}
+      - {x: 0.39249998, y: -0.83}
+      - {x: 0.39249998, y: -0.81}
+      - {x: 0.3175, y: -0.73499995}
+      - {x: 0.3125, y: -0.59}
+  m_UseDelaunayMesh: 0
+--- !u!95 &2312434519809867137
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5541891318139207745}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 29270c74002800143a2f691c42f15367, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
