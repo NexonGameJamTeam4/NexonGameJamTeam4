@@ -14,7 +14,7 @@ public class ShowRank : MonoBehaviour
         string rankUUID = "a9a8c7e0-4065-11ef-8ef5-fbf3130cca85";
         var bro = Backend.URank.User.GetRankList(rankUUID, 10);
 
-        if (bro.IsSuccess() == false)
+        if (!bro.IsSuccess())
         {
             Debug.LogError("랭킹 조회중 오류가 발생했습니다. : " + bro);
             return;
