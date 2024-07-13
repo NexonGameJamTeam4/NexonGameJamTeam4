@@ -31,13 +31,13 @@ public class ParallexBackground_01 : MonoBehaviour
         switch(backgroundType)
         {
             case BackgroundType.back:
-                moveSpeed = player.backgroundSpeed / 4;
+                moveSpeed = player.GetComponent<Rigidbody2D>().velocity.x / 4;
                 break;
             case BackgroundType.middle:
-                moveSpeed = player.backgroundSpeed / 2;
+                moveSpeed = player.GetComponent<Rigidbody2D>().velocity.x / 2;
                 break;
             case BackgroundType.front:
-                moveSpeed = player.backgroundSpeed ;
+                moveSpeed = player.GetComponent<Rigidbody2D>().velocity.x;
                 break;
         }
         moveVec = moveDir * moveSpeed * Time.deltaTime;

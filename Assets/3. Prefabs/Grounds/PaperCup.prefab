@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 1480892183162744773}
   - component: {fileID: -427697344013069970}
   - component: {fileID: -2719628045128885576}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: PaperCup
   m_TagString: Ground
   m_Icon: {fileID: 0}
@@ -121,7 +121,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6276085816979951415}
   - component: {fileID: 105928933783532037}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Papercup
   m_TagString: Untagged
   m_Icon: {fileID: 0}
