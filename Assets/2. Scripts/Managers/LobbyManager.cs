@@ -8,6 +8,11 @@ public class LobbyManager : MonoBehaviour
         SoundManager.instance.Play("MainBGM", Sound.BGM);
     }
 
+    public void ClickBtnSFX()
+    {
+        SoundManager.instance.Play("Click");
+    }
+
     public void StartBtnClicked()
     {
         Debug.Log("StartBtnClicked");
