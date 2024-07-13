@@ -3,7 +3,6 @@ using UnityEngine;
 
 public class TmpTimer : MonoBehaviour
 {
-    [SerializeField] private TmpGameManager gameManager;
     [SerializeField] private TextMeshProUGUI timeTxt;
     [SerializeField] private GameObject registerPanel;
     private float passingTime = 0f;
@@ -21,7 +20,7 @@ public class TmpTimer : MonoBehaviour
     public void StopTimer()
     {
         isPlaying = false;
-        gameManager.clearTime = passingTime;
+        GameManager.instance.clearTime = passingTime;
         registerPanel.SetActive(true);
     }
 }

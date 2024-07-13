@@ -1,14 +1,12 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
-
     public GameObject player;
+    public float clearTime;
 
     [Header("# UI")]
     public GameObject pauseMenu;
@@ -30,6 +28,11 @@ public class GameManager : MonoBehaviour
         stackedValue = new StackedProgress();
         instance = this;
         isPaused = false;
+    }
+
+    private void Start()
+    {
+        clearTime = 0f;
     }
 
     private void Update()

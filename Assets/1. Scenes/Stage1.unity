@@ -219,6 +219,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: RegisterPanel
       objectReference: {fileID: 0}
+    - target: {fileID: 3904056944679657915, guid: 1d05db312392ef844ab53634651ad566, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

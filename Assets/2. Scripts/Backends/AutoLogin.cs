@@ -4,14 +4,19 @@ using UnityEngine;
 
 public class AutoLogin : MonoBehaviour
 {
-    [SerializeField] private TmpGameManager gameManager;
     [SerializeField] private GameObject rankingPanel;
-    [SerializeField] private ShowRank showRank;
-    [SerializeField] private ShowMyRank showMyRank;
+    private ShowRank showRank;
+    private ShowMyRank showMyRank;
 
     [SerializeField] private TMP_InputField nicknameInputField;
     [SerializeField] private TextMeshProUGUI resultTxt;
     private readonly int maxRetryCount = 5;
+
+    private void Start()
+    {
+        showRank = rankingPanel.GetComponent<ShowRank>();
+        showMyRank = rankingPanel.GetComponent<ShowMyRank>();
+    }
 
     // 버튼 클릭 시 호출되는 함수
     public void OnRegisterAndLoginButtonClicked()
@@ -77,8 +82,8 @@ public class AutoLogin : MonoBehaviour
                 resultTxt.text = $"Login successful!\nUser ID: {userId}\nPassword: {password}\nNickname: {nickname}";
 
                 // 점수 업데이트
-                BackendGameData.Instance.GameDataInsert(gameManager.clearTime);
-                BackendRank.Instance.RankInsert(gameManager.clearTime);
+                BackendGameData.Instance.GameDataInsert(GameManager.instance.clearTime);
+                BackendRank.Instance.RankInsert(GameManager.instance.clearTime);
 
                 // 랭킹 보여주기
                 rankingPanel.SetActive(true);
