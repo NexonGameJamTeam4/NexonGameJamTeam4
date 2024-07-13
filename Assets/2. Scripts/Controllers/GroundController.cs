@@ -32,6 +32,7 @@ public class GroundController : MonoBehaviour
 
     Coroutine coLeaf;
     Coroutine coDandelion;
+    Coroutine coSap;
 
     private void Awake()
     {
@@ -114,10 +115,8 @@ public class GroundController : MonoBehaviour
 
     void SapMovement(GameObject player)
     {
-        if (player.transform.localScale.x > 0)
-            player.GetComponent<Rigidbody2D>().AddForce(Vector2.right);
-        else
-            player.GetComponent<Rigidbody2D>().AddForce(Vector2.left);
+        if(coSap == null)
+            coSap = StartCoroutine(CoSap(player));
     }
 
     void DandelionMovement()
@@ -165,5 +164,16 @@ public class GroundController : MonoBehaviour
 
             yield return new WaitForSeconds(2f);
         }
+    }
+
+    IEnumerator CoSap(GameObject player)
+    {
+        player.GetComponent<PlayerController>().speed /= 2;
+
+        yield return new WaitForSeconds(2f);
+
+        player.GetComponent<PlayerController>().speed *= 2;
+
+        coSap = null;
     }
 }

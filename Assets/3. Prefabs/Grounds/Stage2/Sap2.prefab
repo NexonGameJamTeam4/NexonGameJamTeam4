@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5484060812095975281}
   - component: {fileID: 4991909836257437362}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: obstacle_tree_10
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -97,9 +97,9 @@ GameObject:
   - component: {fileID: 6489406242621645020}
   - component: {fileID: 5573879629655818577}
   - component: {fileID: -5601319681144764126}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Sap2
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

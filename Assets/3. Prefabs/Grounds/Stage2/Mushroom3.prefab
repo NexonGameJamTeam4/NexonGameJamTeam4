@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3632794781553500278}
   - component: {fileID: 779145917908665074}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: obstacle_tree_6
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -96,9 +96,9 @@ GameObject:
   - component: {fileID: 1332538901472201840}
   - component: {fileID: 7859270981399366477}
   - component: {fileID: 2805800785729639817}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Mushroom3
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

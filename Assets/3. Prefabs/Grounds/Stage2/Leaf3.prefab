@@ -12,9 +12,9 @@ GameObject:
   - component: {fileID: 7284527326084766933}
   - component: {fileID: 5767390252481239228}
   - component: {fileID: 8622130014518326782}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Leaf3
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -123,7 +123,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1402269623996714249}
   - component: {fileID: 4774782615945010423}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: obstacle_tree_3
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8626250871385452475}
   - component: {fileID: 3834059379883613374}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: obstacle_tree_8
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -96,9 +96,9 @@ GameObject:
   - component: {fileID: -6295108440027814694}
   - component: {fileID: 6455450442925283835}
   - component: {fileID: -7511076065896857723}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Bark2
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
