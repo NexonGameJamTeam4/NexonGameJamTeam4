@@ -2199,7 +2199,9 @@ MonoBehaviour:
   - name: Click
     clip: {fileID: 8300000, guid: cdcd58c5d7192a14da7b6a890261cd1d, type: 3}
   - name: Jump
-    clip: {fileID: 8300000, guid: 7b69a9a0ce850e347a12137908b7d811, type: 3}
+    clip: {fileID: 8300000, guid: 2a3781ceefad5ce49a3644ae83445fbd, type: 3}
+  - name: NextStage
+    clip: {fileID: 8300000, guid: 656ba79537427ff4c992a55f9955c382, type: 3}
   BGMVolume: 0.5
   SFXVolume: 0.5
 --- !u!4 &1445393872
