@@ -34,6 +34,10 @@ public class GroundController : MonoBehaviour
     Coroutine coDandelion;
     Coroutine coSap;
 
+    Vector3 upPosition;
+    Vector3 downPosition;
+    bool flag;
+
     private void Awake()
     {
         anim = GetComponent<Animator>();
@@ -42,6 +46,14 @@ public class GroundController : MonoBehaviour
         if(type == BlockType.Papercup)
             sprite = GetComponentInChildren<SpriteRenderer>();
         paperCount = 0;
+
+        upPosition = transform.position + Vector3.up * 3f;
+        downPosition = transform.position + Vector3.down * 3f;
+        int i = Random.Range(0, 2);
+        if (i == 0)
+            flag = true;
+        else
+            flag = false;
     }
 
     private void Start()
@@ -146,23 +158,28 @@ public class GroundController : MonoBehaviour
 
     IEnumerator CoDandelion()
     {
-        Vector3 upPosition = transform.position + Vector3.up * 5f;
-        Vector3 downPosition = transform.position + Vector3.down * 5f;
         while(true)
         {
-            while(Vector3.Distance(transform.position, upPosition) > 0.1f)
+            // 위로
+            if(flag && Vector3.Distance(transform.position, upPosition) > 0.2f)
             {
-                rb.MovePosition(upPosition);
+                transform.Translate(Vector2.up * 2f * Time.deltaTime);
+            }
+            else if(flag && Vector3.Distance(transform.position, upPosition) < 0.2f)
+            {
+                flag = false;
             }
 
-            yield return new WaitForSeconds(2f);
+            yield return null;
 
-            while (Vector3.Distance(transform.position, downPosition) > 0.1f)
+            if(!flag && Vector3.Distance(transform.position, downPosition) > 0.2f)
             {
-                rb.MovePosition(downPosition);
+                transform.Translate(Vector2.down * 2f * Time.deltaTime);
             }
-
-            yield return new WaitForSeconds(2f);
+            else if(!flag && Vector3.Distance(transform.position, downPosition) < 0.2f)
+            {
+                flag = true;
+            }
         }
     }
 

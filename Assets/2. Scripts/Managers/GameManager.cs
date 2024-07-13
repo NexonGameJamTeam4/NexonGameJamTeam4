@@ -76,5 +76,11 @@ public class GameManager : MonoBehaviour
             nowProgress = player.transform.position.y / endSize + stackedValue.stackedValue;
             progressSlider.value = nowProgress;
         }
+        else if (SceneManager.GetActiveScene() == SceneManager.GetSceneByName("Stage3"))
+        {
+            endSize = Vector2.Distance(endBlock.transform.position, startBlock.transform.position);
+            nowProgress = player.transform.position.x / endSize + stackedValue.stackedValue;
+            progressSlider.value = nowProgress;
+        }
     }
 }
