@@ -27,14 +27,15 @@ public class GroundController : MonoBehaviour
     private SpriteRenderer sprite;
     private int paperCount;
     private Color leafColor;
-    private CapsuleCollider2D leafCollider;
-    
+    private BoxCollider2D leafCollider;
+
+    Coroutine coLeaf;
 
     private void Awake()
     {
         anim = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
-        leafCollider = GetComponent<CapsuleCollider2D>();
+        leafCollider = GetComponent<BoxCollider2D>();
         if(type == BlockType.Papercup)
             sprite = GetComponentInChildren<SpriteRenderer>();
         paperCount = 0;
@@ -81,7 +82,8 @@ public class GroundController : MonoBehaviour
 
     void LeafMovement()
     {
-        StartCoroutine(CoLeaf());
+        if(coLeaf == null)
+            coLeaf = StartCoroutine(CoLeaf());
     }
 
     void MushroomMovement()

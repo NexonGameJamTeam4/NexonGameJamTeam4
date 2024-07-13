@@ -2,19 +2,26 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
 
-    public PoolManager poolManager;
+    public GameObject player;
+    public GameObject pauseMenu;
+    public Slider progressSlider;
 
+    public GameObject endBlock;
+    public GameObject startBlock;
+
+    float endSize;
+    float nowProgress;
     bool isPaused;
 
     private void Awake()
     {
         instance = this;
-        DontDestroyOnLoad(gameObject);
         isPaused = false;
     }
 
@@ -23,6 +30,7 @@ public class GameManager : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Escape) && isPaused)
         {
             Time.timeScale = 1;
+            pauseMenu.SetActive(false);
             return;
         }
 
@@ -30,10 +38,13 @@ public class GameManager : MonoBehaviour
         {
             Debug.Log("escape");
             Time.timeScale = 0;
+            pauseMenu.SetActive(true);
             isPaused = true;
             return;
-            // TODO: UI 보여주기
+
         }
+
+        Progress();
     }
 
     public void Defeat()
@@ -42,5 +53,12 @@ public class GameManager : MonoBehaviour
 
         //임시
         SceneManager.LoadScene("Battle");
+    }
+
+    public void Progress()
+    {
+        endSize = Vector2.Distance(endBlock.transform.position, startBlock.transform.position);
+        nowProgress = player.transform.position.x / endSize;
+        progressSlider.value = nowProgress;
     }
 }
