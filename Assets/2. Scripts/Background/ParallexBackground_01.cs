@@ -23,24 +23,33 @@ public class ParallexBackground_01 : MonoBehaviour
     [SerializeField]
     private BackgroundType backgroundType;
 
-    Vector3 moveVec = new Vector3();
-    float moveSpeed;
+    private Vector3 lastPlayerPosition; // 이전 플레이어 위치 저장
+    private float moveSpeed;
+
+    private void Start()
+    {
+        lastPlayerPosition = player.transform.position; // 초기화
+    }
 
     private void FixedUpdate()
     {
-        switch(backgroundType)
+        Vector3 deltaPosition = player.transform.position - lastPlayerPosition; // 플레이어 위치 변화 계산
+        lastPlayerPosition = player.transform.position; // 이전 플레이어 위치 업데이트
+
+        switch (backgroundType)
         {
             case BackgroundType.back:
-                moveSpeed = player.GetComponent<Rigidbody2D>().velocity.x / 4;
+                moveSpeed = deltaPosition.x / 4;
                 break;
             case BackgroundType.middle:
-                moveSpeed = player.GetComponent<Rigidbody2D>().velocity.x / 2;
+                moveSpeed = deltaPosition.x / 2;
                 break;
             case BackgroundType.front:
-                moveSpeed = player.GetComponent<Rigidbody2D>().velocity.x;
+                moveSpeed = deltaPosition.x;
                 break;
         }
-        moveVec = moveDir * moveSpeed * Time.deltaTime;
+
+        Vector3 moveVec = moveSpeed * Time.deltaTime * moveDir;
         transform.position += moveVec;
 
         if (transform.position.x - player.gameObject.transform.position.x > 25)
