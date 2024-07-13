@@ -30,6 +30,7 @@ public class AutoLogin : MonoBehaviour
             return;
         }
 
+        gameObject.SetActive(false);
         TryRegisterAndLogin(nickname, maxRetryCount);
     }
 
