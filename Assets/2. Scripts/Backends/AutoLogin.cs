@@ -17,9 +17,16 @@ public class AutoLogin : MonoBehaviour
     {
         string nickname = nicknameInputField.text;
 
+        BackendReturnObject bro = Backend.BMember.CheckNicknameDuplication(nickname);
+        if (!bro.IsSuccess())
+        {
+            resultTxt.text = "이미 존재하는 닉네임입니다.";
+            return;
+        }
+
         if (string.IsNullOrEmpty(nickname))
         {
-            resultTxt.text = "Please enter a nickname.";
+            resultTxt.text = "닉네임을 입력하세요.";
             return;
         }
 

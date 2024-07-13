@@ -21,13 +21,10 @@ public class BackendManager : MonoBehaviour
         Test();
     }
 
-    // =======================================================
-    // [추가] 동기 함수를 비동기에서 호출하게 해주는 함수(유니티 UI 접근 불가)
-    // =======================================================
     async void Test()
     {
         await Task.Run(() => {
-            BackendLogin.Instance.CustomLogin("user1", "1234"); // [추가] 뒤끝 로그인
+            BackendLogin.Instance.CustomLogin("user1", "1234");
 
             Debug.Log("테스트를 종료합니다.");
         });
