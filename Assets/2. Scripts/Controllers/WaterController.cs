@@ -20,7 +20,7 @@ public class WaterController : MonoBehaviour
     {
         if(collision.gameObject.tag == "Player")
         {
-            GameManager.instance.player.GetComponent<PlayerController>().Dead();
+            GameManager.instance.stageManager.player.GetComponent<PlayerController>().Dead();
         }
     }
 }

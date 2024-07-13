@@ -130,6 +130,6 @@ public class PlayerController : CreatureState
     {
         //TODO : Defeat, dead motion
         state = State.Die;
-        AnimationUpdate();
+        // AnimationUpdate();
     }
 }

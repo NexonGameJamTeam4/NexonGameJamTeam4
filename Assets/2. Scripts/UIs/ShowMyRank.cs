@@ -10,7 +10,7 @@ public class ShowMyRank : MonoBehaviour
 
     public void FetchMyRank()
     {
-        string rankUUID = "a9a8c7e0-4065-11ef-8ef5-fbf3130cca85";
+        string rankUUID = "eb4e6950-4148-11ef-8e9b-9998e7aa4112";
         var bro = Backend.URank.User.GetMyRank(rankUUID);
 
         if (!bro.IsSuccess())

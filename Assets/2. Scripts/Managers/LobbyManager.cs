@@ -10,6 +10,7 @@ public class LobbyManager : MonoBehaviour
 
     public void StartBtnClicked()
     {
+        GameManager.instance.clearTime = 0f;
         SceneManager.LoadScene("Stage1");
     }
 

@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class StageMove : MonoBehaviour
@@ -16,7 +14,7 @@ public class StageMove : MonoBehaviour
                 SceneManager.LoadScene("Stage3");
             else if(SceneManager.GetActiveScene().name == "Stage3")
             {
-                GameManager.instance.Victory();
+                GameManager.instance.stageManager.Victory();
             }
         }
     }

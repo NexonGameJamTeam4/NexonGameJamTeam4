@@ -18,7 +18,7 @@ public class BackendRank : MonoBehaviour
 
     public void RankInsert(float clearTime)
     {
-        string rankUUID = "a9a8c7e0-4065-11ef-8ef5-fbf3130cca85";
+        string rankUUID = "eb4e6950-4148-11ef-8e9b-9998e7aa4112";
 
         string tableName = "USER_DATA";
 
@@ -76,7 +76,7 @@ public class BackendRank : MonoBehaviour
 
     public void RankGet()
     {
-        string rankUUID = "a9a8c7e0-4065-11ef-8ef5-fbf3130cca85";
+        string rankUUID = "eb4e6950-4148-11ef-8e9b-9998e7aa4112";
         var bro = Backend.URank.User.GetRankList(rankUUID);
 
         if (bro.IsSuccess() == false)
