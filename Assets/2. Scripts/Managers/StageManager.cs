@@ -44,25 +44,11 @@ public class StageManager : MonoBehaviour
 
     public void Progress()
     {
-        if (SceneManager.GetActiveScene().name == "Stage1")
-        {
-            endSize = Vector2.Distance(endBlock.transform.position, startBlock.transform.position);
-            nowProgress = player.transform.position.x / endSize;
-            progressSlider.value = nowProgress;
-        }
-        else if (SceneManager.GetActiveScene().name == "Stage2")
-        {
-            endSize = Vector2.Distance(endBlock.transform.position, startBlock.transform.position);
-            nowProgress = player.transform.position.y / endSize;
-            progressSlider.value = nowProgress;
-        }
-        else if (SceneManager.GetActiveScene().name == "Stage3")
-        {
-            endSize = Vector2.Distance(endBlock.transform.position, startBlock.transform.position);
-            nowProgress = player.transform.position.x / endSize;
-            progressSlider.value = nowProgress;
-        }
+        endSize = Vector2.Distance(endBlock.transform.position, startBlock.transform.position);
+        nowProgress = 1 - Vector2.Distance(player.transform.position, endBlock.transform.position) / endSize;
+        progressSlider.value = nowProgress;
     }
+
     public void GoToMain()
     {
         Time.timeScale = 1;
