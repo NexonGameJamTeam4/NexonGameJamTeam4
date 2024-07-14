@@ -43,7 +43,7 @@ public class PlayerController : CreatureState
             coyoteTimeCounter -= Time.deltaTime;
         }
 
-        if (isKeyDown())
+        if (IsKeyDown())
         {
             jumpBufferCounter = jumpBufferTime;
 
@@ -62,19 +62,19 @@ public class PlayerController : CreatureState
             StartCoroutine(JumpCooldown());
         }
 
-        if (isKeyUp() && rb.velocity.y > 0f)
+        if (IsKeyUp() && rb.velocity.y > 0f)
         {
             rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y * 0.5f);
             coyoteTimeCounter = 0f;
         }
     }
 
-    private bool isKeyDown()
+    private bool IsKeyDown()
     {
         return (Input.GetButtonDown("Jump") || (Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.W)));
     }
 
-    private bool isKeyUp()
+    private bool IsKeyUp()
     {
         return (Input.GetButtonUp("Jump") || (Input.GetKeyUp(KeyCode.UpArrow) || Input.GetKeyUp(KeyCode.W)));
     }
