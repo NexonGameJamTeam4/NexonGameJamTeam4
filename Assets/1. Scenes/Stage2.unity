@@ -842,7 +842,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   clearTime: 0
-  stageManager: {fileID: 0}
+  stageManager: {fileID: 79685431}
   isCleared: 0
 --- !u!4 &185045402
 Transform:
