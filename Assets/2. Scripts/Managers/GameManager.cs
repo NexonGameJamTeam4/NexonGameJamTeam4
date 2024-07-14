@@ -22,6 +22,7 @@ public class GameManager : MonoBehaviour
 
         DontDestroyOnLoad(gameObject);
         isPaused = false;
+        isCleared = false;
     }
 
     private void Start()
