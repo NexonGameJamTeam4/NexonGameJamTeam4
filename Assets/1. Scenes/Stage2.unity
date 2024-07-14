@@ -393,7 +393,7 @@ MonoBehaviour:
   DefeatMenu: {fileID: 1832264411}
   VictoryMenu: {fileID: 1832264411}
   progressSlider: {fileID: 464857159}
-  endBlock: {fileID: 0}
+  endBlock: {fileID: 1563102016}
   startBlock: {fileID: 1447149012}
 --- !u!4 &79685432
 Transform:
@@ -7121,6 +7121,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 526b69e888bfae44da9498d3c63144e8, type: 3}
+--- !u!1 &1563102016 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 34548282471953978, guid: 526b69e888bfae44da9498d3c63144e8, type: 3}
+  m_PrefabInstance: {fileID: 1563102015}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1568818460
 PrefabInstance:
   m_ObjectHideFlags: 0
