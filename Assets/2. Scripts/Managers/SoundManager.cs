@@ -60,7 +60,7 @@ public class SoundManager : MonoBehaviour
     private void Update()
     {
         BGM.volume = BGMVolume;
-        BGM2.volume = BGMVolume * 0.3f;
+        BGM2.volume = BGMVolume * 0.5f;
         SFX.volume = SFXVolume;
     }
 
@@ -87,7 +87,7 @@ public class SoundManager : MonoBehaviour
             else
             {
                 audioSource = BGM2;
-                audioSource.volume = BGMVolume * 0.3f;
+                audioSource.volume = BGMVolume * 0.5f;
             }
             if (audioSource.isPlaying)
                 audioSource.Stop();
