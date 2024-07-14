@@ -8,6 +8,22 @@ public class LobbyManager : MonoBehaviour
         SoundManager.instance.Play("MainBGM", Sound.BGM);
     }
 
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.F1))
+        {
+            SceneManager.LoadScene("Stage1");
+        }
+        else if (Input.GetKeyDown(KeyCode.F2))
+        {
+            SceneManager.LoadScene("Stage2");
+        }
+        else if (Input.GetKeyDown(KeyCode.F3))
+        {
+            SceneManager.LoadScene("Stage3");
+        }
+    }
+
     public void StartBtnClicked()
     {
         // TODO: 스테이지1 첫블럭에서 발 떼면 0초로 초기화
