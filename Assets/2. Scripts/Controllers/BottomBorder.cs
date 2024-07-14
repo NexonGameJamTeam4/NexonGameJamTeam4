@@ -14,7 +14,7 @@ public class BottomBorder : MonoBehaviour
     {
         if(collision.gameObject.tag == "Player")
         {
-            GameManager.instance.stageManager.Defeat();
+            player.GetComponent<PlayerController>().Dead();
         }
     }
 }

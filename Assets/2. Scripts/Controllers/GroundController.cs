@@ -106,7 +106,7 @@ public class GroundController : MonoBehaviour
     {
         if (type == BlockType.Moss)
             SetNormal(collision.gameObject);
-        }
+    }
 
     void SetNormal(GameObject player)
     {
