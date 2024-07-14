@@ -68,9 +68,9 @@ public class GroundController : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.tag == "Player")   
+        if (collision.gameObject.tag == "Player")
         {
             switch (type)
             {
@@ -101,6 +101,40 @@ public class GroundController : MonoBehaviour
             }
         }
     }
+
+    //private void OnTriggerEnter2D(Collider2D collision)
+    //{
+    //    if (collision.gameObject.tag == "Player")   
+    //    {
+    //        switch (type)
+    //        {
+    //            case BlockType.Rock:
+    //                break;
+    //            case BlockType.Leaf:
+    //                break;
+    //            case BlockType.Papercup:
+    //                PapercupMovement();
+    //                break;
+    //            case BlockType.Mushroom:
+    //                MushroomMovement();
+    //                break;
+    //            case BlockType.Bark:
+    //                MushroomMovement();
+    //                break;
+    //            case BlockType.Sap:
+    //                SapMovement(collision.gameObject);
+    //                break;
+    //            case BlockType.Moss:
+    //                SetSlippy(collision.gameObject);
+    //                break;
+    //            case BlockType.Dandelion:
+    //                break;
+    //            case BlockType.ShatteredRock:
+    //                MushroomMovement();
+    //                break;
+    //        }
+    //    }
+    //}
 
     private void OnTriggerExit2D(Collider2D collision)
     {
