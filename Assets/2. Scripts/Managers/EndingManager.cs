@@ -8,7 +8,12 @@ public class EndingManager : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.P))
+        {
+            page = 3;
+            NextPage();
+        }
+        else if (Input.anyKeyDown)
         {
             NextPage();
         }
